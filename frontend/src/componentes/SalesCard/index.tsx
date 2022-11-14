@@ -4,6 +4,9 @@ import NotificationButtom from "../NotificationButtom";
 import "./style.css";
 
 function SalesCard() {
+    const [dataMin, setDataMin];
+    const [dataMax, setDataMax]
+
   return (
     <div className="card">
       <h2>Vendas</h2>
