@@ -1,10 +1,17 @@
-import NotificationButtom from "./componentes/NotificationButtom";
+import Header from "./componentes/Header";
+import SalesCard from "./componentes/SalesCard";
 
 function App() {
   return (
     <>
-      <h1>Olá Mundo</h1>
-      <NotificationButtom />
+      <Header />
+      <main>
+        <section id="vendas">
+          <div className="container">
+            <SalesCard />
+          </div>
+        </section>
+      </main>
     </>
   );
 }

@@ -1,0 +1,70 @@
+.card {
+    min-height: 200px;
+    background-color: #283142;
+    border-radius: 10px;
+    padding: 32px 16px;
+}
+
+.card h2 {
+    color: #676FFF;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.input-container {
+    max-width: 300px;
+}
+
+.card input {
+    height: 46px;
+    width: 100%;
+    background-color: #1B2531;
+    border: 1px solid #384459;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    color: #a6b2c0;
+    padding: 0 20px;
+    font-size: 1.128rem;
+}
+
+.tabela {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.tabela thead {
+    height: 55px;
+    font-size: 1rem;
+    color: #e9e9e9;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+.tabela tbody {
+    font-size: 0.88rem;
+    font-weight: 100;
+    color: #cfcfcf;
+
+}
+
+.tabela tbody tr {
+    height: 74px;
+    border-top: 1px solid #5f6e82;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.tabela tbody tr:nth-child(odd) {
+    background-color: #242C3B;
+}
+.tabela tbody tr:hover > td{
+    background-color: rgba(255,255,255,0.2);
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.viewIn576px , .viewIn992px {
+    display: none;
+}

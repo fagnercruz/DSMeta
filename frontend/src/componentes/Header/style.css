@@ -1,0 +1,27 @@
+header {
+    height: 220px;
+    background: linear-gradient(180deg, #375080 0%, rgba(18,18,18,.05) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container img{
+    width: 235px;
+}
+
+.logo-container h1 {
+    margin-top: 15px;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+}
+.logo-container p {
+    font-size: 14px;
+    font-weight: 100;
+}

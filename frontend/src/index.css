@@ -17,8 +17,39 @@ a, a:hover, a:visited {
     color: unset;
 }
 
+#vendas{
+    padding: 40px 10px;
+}
+.container{
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 
+@media (min-width: 576px) {
+    .viewIn576px{
+        display: table-cell;
+    }
+    .card {
+        padding: 35px;
+    }
+    .tabela tbody {
+        font-size: 1.13rem;
+    }
+    .tabela tbody tr {
+        height: 62px;
+    }
+}
+
+@media (min-width: 992px) {
+    .viewIn992px{
+        display: table-cell;
+    }
+    .card {
+        padding: 35px;
+    }
+}
 
 
 
