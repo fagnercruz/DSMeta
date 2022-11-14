@@ -1,11 +1,12 @@
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationButtom from "../NotificationButtom";
 import "./style.css";
 
 function SalesCard() {
-    const [dataMin, setDataMin];
-    const [dataMax, setDataMax]
+    const [dataMin, setDataMin] = useState(new Date());
+    const [dataMax, setDataMax] = useState(new Date());
 
   return (
     <div className="card">
@@ -13,7 +14,7 @@ function SalesCard() {
       <div className="filtros">
         <div className="input-container">
           <DatePicker
-            selected={new Date()}
+            selected={dataMin}
             onChange={(date: Date) => {}}
             className="dsmeta-input"
             dateFormat="dd/MM/yyyy"
@@ -21,7 +22,7 @@ function SalesCard() {
         </div>
         <div className="input-container">
         <DatePicker
-            selected={new Date()}
+            selected={dataMax}
             onChange={(date: Date) => {}}
             className="dsmeta-input"
             dateFormat="dd/MM/yyyy"
