@@ -43,7 +43,7 @@ public class SmsService {
 		PhoneNumber to = new PhoneNumber(twilioPhoneTo);
 		PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
 
-		Message message = Message.creator(to, from, mensagem.toString()).create();
+		Message message = Message.creator(to, from, "teste").create();
 
 		System.out.println(message.getSid());
 	}
