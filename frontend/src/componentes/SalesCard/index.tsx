@@ -5,7 +5,9 @@ import NotificationButtom from "../NotificationButtom";
 import "./style.css";
 
 function SalesCard() {
-    const [dataMin, setDataMin] = useState(new Date());
+  const min = new Date(new Date().setDate(new Date().getDate() - 365))
+
+    const [dataMin, setDataMin] = useState(min);
     const [dataMax, setDataMax] = useState(new Date());
 
   return (
@@ -15,7 +17,7 @@ function SalesCard() {
         <div className="input-container">
           <DatePicker
             selected={dataMin}
-            onChange={(date: Date) => {}}
+            onChange={(date: Date) => setDataMin(date)}
             className="dsmeta-input"
             dateFormat="dd/MM/yyyy"
           />
@@ -23,7 +25,7 @@ function SalesCard() {
         <div className="input-container">
         <DatePicker
             selected={dataMax}
-            onChange={(date: Date) => {}}
+            onChange={(date: Date) => setDataMax(date)}
             className="dsmeta-input"
             dateFormat="dd/MM/yyyy"
           />
