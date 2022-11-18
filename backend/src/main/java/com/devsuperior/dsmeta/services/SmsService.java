@@ -36,7 +36,7 @@ public class SmsService {
 		StringBuilder mensagem = new StringBuilder();
 		mensagem.append("Olá " + sale.getSellerName() + ", ");
 		mensagem.append("sua venda #" + sale.getId() + " foi concluída. ");
-		mensagem.append("Valor total: R$ " + new DecimalFormat("#,##0.00").format(sale.getAmount()));
+		mensagem.append("Valor total: R$ " + sale.getAmount());
 
 		Twilio.init(twilioSid, twilioKey);
 
