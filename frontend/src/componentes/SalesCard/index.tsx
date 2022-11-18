@@ -2,21 +2,25 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Sale } from "../../models/sale";
+import { BASE_URL } from "../../Utils/request";
 import NotificationButtom from "../NotificationButtom";
 import "./style.css";
 
 function SalesCard() {
-  const min = new Date(new Date().setDate(new Date().getDate() - 365))
+  const min = new Date(new Date().setDate(new Date().getDate() - 365));
 
   const [dataMin, setDataMin] = useState(min);
   const [dataMax, setDataMax] = useState(new Date());
 
-  useEffect(()=> {
-    axios.get("http://localhost:8080/sales")
-         .then(retorno => {
-            console.log(retorno.data);
-         });
-  },[]);
+  const [sales, setSales] = useState<Sale[]>([]);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/sales`).then((retorno) => {
+      setSales(retorno.data.content);
+      console.log(sales)
+    });
+  }, []);
 
   return (
     <div className="card">
@@ -31,7 +35,7 @@ function SalesCard() {
           />
         </div>
         <div className="input-container">
-        <DatePicker
+          <DatePicker
             selected={dataMax}
             onChange={(date: Date) => setDataMax(date)}
             className="dsmeta-input"
@@ -53,19 +57,23 @@ function SalesCard() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="viewIn992px">ID</td>
-              <td className="viewIn576px">data</td>
-              <td>nome</td>
-              <td className="viewIn992px">visitas</td>
-              <td className="viewIn992px">vendas</td>
-              <td>total</td>
-              <td>
-                <div className="btn-container">
-                  <NotificationButtom />
-                </div>
-              </td>
-            </tr>
+            {sales.map((venda) => {
+              return (
+                <tr>
+                  <td className="viewIn992px">{venda.id}</td>
+                  <td className="viewIn576px">{venda.deals}</td>
+                  <td>{venda.sellerName}</td>
+                  <td className="viewIn992px">{venda.visited}</td>
+                  <td className="viewIn992px">{venda.deals}</td>
+                  <td>{venda.amount}</td>
+                  <td>
+                    <div className="btn-container">
+                      <NotificationButtom />
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
