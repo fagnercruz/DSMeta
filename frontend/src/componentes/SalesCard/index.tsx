@@ -10,17 +10,21 @@ import "./style.css";
 function SalesCard() {
   const min = new Date(new Date().setDate(new Date().getDate() - 365));
 
+  
+
   const [dataMin, setDataMin] = useState(min);
   const [dataMax, setDataMax] = useState(new Date());
-
   const [sales, setSales] = useState<Sale[]>([]);
 
+  const minDtInput = dataMin.toISOString().slice(0,10);
+  const maxDtInput = dataMax.toISOString().slice(0,10);
+
   useEffect(() => {
-    axios.get(`${BASE_URL}/sales`).then((retorno) => {
+    axios.get(`${BASE_URL}/sales?minDate=${minDtInput}&maxDate=${maxDtInput}`).then((retorno) => {
       setSales(retorno.data.content);
       console.log(sales)
     });
-  }, []);
+  }, [dataMin, dataMax]);
 
   return (
     <div className="card">
