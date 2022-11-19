@@ -59,13 +59,13 @@ function SalesCard() {
           <tbody>
             {sales.map((venda) => {
               return (
-                <tr>
+                <tr key={venda.id}>
                   <td className="viewIn992px">{venda.id}</td>
-                  <td className="viewIn576px">{venda.deals}</td>
+                  <td className="viewIn576px">{new Date(venda.date).toLocaleDateString()}</td>
                   <td>{venda.sellerName}</td>
                   <td className="viewIn992px">{venda.visited}</td>
                   <td className="viewIn992px">{venda.deals}</td>
-                  <td>{venda.amount}</td>
+                  <td>R$ {venda.amount.toFixed(2)}</td>
                   <td>
                     <div className="btn-container">
                       <NotificationButtom />
