@@ -22,7 +22,6 @@ function SalesCard() {
   useEffect(() => {
     axios.get(`${BASE_URL}/sales?minDate=${minDtInput}&maxDate=${maxDtInput}`).then((retorno) => {
       setSales(retorno.data.content);
-      console.log(sales)
     });
   }, [dataMin, dataMax]);
 
@@ -72,7 +71,7 @@ function SalesCard() {
                   <td>R$ {venda.amount.toFixed(2)}</td>
                   <td>
                     <div className="btn-container">
-                      <NotificationButtom />
+                      <NotificationButtom saleId={venda.id} />
                     </div>
                   </td>
                 </tr>

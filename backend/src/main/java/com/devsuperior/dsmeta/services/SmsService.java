@@ -36,15 +36,16 @@ public class SmsService {
 		StringBuilder mensagem = new StringBuilder();
 		mensagem.append("Olá " + sale.getSellerName() + ", ");
 		mensagem.append("sua venda #" + sale.getId() + " foi concluída. ");
-		mensagem.append("Valor total: R$ " + sale.getAmount());
+		mensagem.append("Valor total: R$ " + sale.getAmount().toString());
 
 		Twilio.init(twilioSid, twilioKey);
 
 		PhoneNumber to = new PhoneNumber(twilioPhoneTo);
 		PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
 
-		Message message = Message.creator(to, from, "teste").create();
-
+		System.out.println(mensagem.toString());
+		
+		Message message = Message.creator(to, from, mensagem.toString()).create();
 		System.out.println(message.getSid());
 	}
 }
